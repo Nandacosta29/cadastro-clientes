@@ -25,4 +25,10 @@ function chutar() {
     const input = document.getElementById("palpite");
     const palpite = parseInt(input.value);
 
+    const mensagem = document.getElementById("mensagem");
+    const tentativas = document.getElementById("tentativas");
+
+
+
+
 }
