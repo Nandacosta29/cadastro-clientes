@@ -1,0 +1,27 @@
+[
+    {
+      "idcliente": 1,
+      "nome": "Ana",
+      "cidade": "Petrópolis",
+      "pedidos": [
+        { "idpedido": 1, "data_pedido": "2020-10-06" },
+        { "idpedido": 2, "data_pedido": "2020-10-07" }
+      ]
+    },
+    {
+      "idcliente": 2,
+      "nome": "Bruno",
+      "cidade": "Niterói",
+      "pedidos": [
+        { "idpedido": 3, "data_pedido": "2020-11-01" }
+      ]
+    },
+    {
+      "idcliente": 3,
+      "nome": "Carla",
+      "cidade": "São Paulo",
+      "pedidos": [
+        { "idpedido": 4, "data_pedido": "2020-11-10" }
+      ]
+    }
+  ]
