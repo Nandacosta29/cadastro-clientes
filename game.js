@@ -16,19 +16,55 @@ Se as tentativas chegarem a zero, finalizar o jogo e exibir a mensagem:
 "Você perdeu! O número secreto era X."
 Desabilitar o campo de input e o botão quando o jogo terminar (por acerto ou fim das tentativas).
 */
-
+// Gerar número aleatório entre 1 e 100 
 const numeroSecreto = Math.floor(Math.random() * 100) + 1;
 const maxTentativas = 10;
 let tentativasRestantes = maxTentativas; 
 
+// Função que executa quando o botão é clicado
 function chutar() {
     const input = document.getElementById("palpite");
     const palpite = parseInt(input.value);
 
+
     const mensagem = document.getElementById("mensagem");
     const tentativas = document.getElementById("tentativas");
 
+     // Validação do palpite
+     if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+        mensagem.innerText = "Digite um número válido entre 1 e 100.";
+        return;
+    }
 
+    tentativasRestantes--;
 
+    if (palpite === numeroSecreto) {
+        mensagem.innerText = "🎉 Você acertou! Parabéns!";
+        tentativas.innerText = "";
+        desabilitarJogo();
+    } else if (tentativasRestantes === 0) {
+        mensagem.innerText = `❌ Você perdeu! O número secreto era ${numeroSecreto}.`;
+        tentativas.innerText = "";
+        desabilitarJogo();
+    } else if (palpite < numeroSecreto) {
+        mensagem.innerText = "🔼 O número secreto é maior.";
+        tentativas.innerText = `Tentativas restantes: ${tentativasRestantes}`;
+    } else {
+        mensagem.innerText = "🔽 O número secreto é menor.";
+        tentativas.innerText = `Tentativas restantes: ${tentativasRestantes}`;
+    }
 
+    input.value = "";
+    input.focus();
 }
+
+// Função para desabilitar o input e o botão após o fim do jogo
+function desabilitarJogo() {
+    document.getElementById("palpite").disabled = true;
+    document.querySelector("button").disabled = true;
+}
+
+
+
+
+
